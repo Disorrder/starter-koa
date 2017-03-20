@@ -1,0 +1,20 @@
+extends ../index.pug
+
+block content
+    div.container
+        each bot in bots
+            div.card.my-1
+                div.card-header.py-1
+                    span.text-uppercase.text-info.pr-2 #{bot.sn}
+                    b #{bot.name}
+                div.card-block.py-1
+                    div Token: #{bot.token}
+                    a.btn.btn-sm.btn-primary(href="#") Refresh token
+        else
+            div.alert.alert-warning Нет ни одного бота
+
+        div.mt-2
+            | Добавить:
+            a.btn.btn-sm.btn-outline-success.text-uppercase.ml-1(href="/vk/token" target="_blank") vk
+
+    div#addModal.modal.fade
